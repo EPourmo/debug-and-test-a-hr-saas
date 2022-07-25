@@ -13,7 +13,7 @@ import mockStore from "../__mocks__/store";
 
 describe("Given I am connected as an employee", () => {
   describe("When I am on NewBill Page", () => {
-    test("Then email icon in vertical layout should be highlighted and bill icon should not be highlighted", async () => {
+    test("Then email icon in vertical layout should be highlighted", async () => {
       Object.defineProperty(window, "localStorage", {
         value: localStorageMock,
       });
@@ -30,13 +30,18 @@ describe("Given I am connected as an employee", () => {
       window.onNavigate(ROUTES_PATH.NewBill);
       await waitFor(() => screen.getByTestId("icon-mail"));
       const mailIcon = screen.getByTestId("icon-mail");
-      const billIcon = screen.getByTestId("icon-window");
       expect(mailIcon.getAttribute("class")).toContain("active-icon");
+    });
+
+    test("Bill icon should not be highlighted", async () => {
+      await waitFor(() => screen.getByTestId("icon-window"));
+      const billIcon = screen.getByTestId("icon-window");
       expect(billIcon.getAttribute("class")).toBeNull();
     });
   });
+
   describe("When I am on NewBill Page and I click to submit", () => {
-    test("then it should call handleSubmit and render bill page", () => {
+    test("Then it should call handleSubmit and render bill page", () => {
       const html = NewBillUI();
       document.body.innerHTML = html;
 
@@ -63,12 +68,14 @@ describe("Given I am connected as an employee", () => {
       form.addEventListener("submit", handleSubmit1);
       fireEvent.submit(form);
       expect(handleSubmit1).toHaveBeenCalled();
-      // expect(screen.getAllByText("Mes notes de frais")).toBeTruthy();
+    });
+    test("Then it should render bill page", () => {
+      expect(screen.getByText("Mes notes de frais")).toBeTruthy();
     });
   });
 
   describe("When I am on NewBill Page and I select file with correct extension (jpeg, png or jpg)", () => {
-    test("No message error should be shown and send btn should be enable", () => {
+    test("Then no message error should be shown and send btn should be enable", () => {
       const html = NewBillUI();
       document.body.innerHTML = html;
       Object.defineProperty(window, "localStorage", {
@@ -142,8 +149,9 @@ describe("Given I am connected as an employee", () => {
   });
 });
 
+// integration test
 describe("Given I am connected as an employee", () => {
-  describe("When I submit form with valid inputs", () => {
+  describe("When I submit form", () => {
     test("Then fetches bill from mock API POST", async () => {
       const billUpdateMocked = mockStore.bills().update();
       const billPromiseSolved = await billUpdateMocked.then((data) => {
