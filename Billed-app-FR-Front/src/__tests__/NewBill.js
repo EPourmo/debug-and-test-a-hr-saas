@@ -209,7 +209,7 @@ describe("Given I am connected as an employee", () => {
       fireEvent.submit(form);
 
       await new Promise(process.nextTick);
-      expect(console.error).toBeCalled();
+      expect(console.error).toHaveBeenCalled();
     });
   });
 });
