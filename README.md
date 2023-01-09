@@ -21,13 +21,6 @@ Main missions of the project:
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 ## Badges
 ![GitHub last commit](https://img.shields.io/github/last-commit/EPourmo/debug-and-test-a-hr-saas?style=plastic)
-## Run Locally
-### 1. Prerequisite
-- [NodeJS (version 12)](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/)
-- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
-
-It is highly recommended to use [nvm](https://github.com/nvm-sh/nvm) in order to switch easily NodeJS version. Indeed, this project uses Vite and Vite requires Node.js version 14.18+, 16+.
 
 ## Features
 
