@@ -10,7 +10,7 @@ This project is part of OpenClassrooms "Développeur d'application - JavaScript 
 The goal of this project is to debug and test a HR SaaS. The [back-end](https://github.com/OpenClassrooms-Student-Center/Billed-app-FR-back) and [front-end](https://github.com/OpenClassrooms-Student-Center/Billed-app-FR-Front) were already provided. 
 
 Main missions of the project: 
-- Debugging some bugs identify by Jest using Chome Debugger
+- Debugging some bugs identifed by Jest using Chome Debugger
 - Add unit and integration tests for Bills and New Bill files
 - Write an End-to-End (E2E) test plan
 
